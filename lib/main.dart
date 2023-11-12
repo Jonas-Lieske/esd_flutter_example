@@ -1,42 +1,42 @@
 import 'package:flutter/material.dart';
+import 'screens/home_screen.dart';
+import 'screens/details_screen.dart';
+import 'screens/add_item_screen.dart';
+import 'models/favorite_item.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
+      title: 'My Favorite Things',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
-      ),
+      home: HomeScreen(),
+      // Static routes
+      routes: {
+        HomeScreen.routeName: (context) => HomeScreen(),
+        AddItemScreen.routeName: (context) => const AddItemScreen(),
+      },
+      // Routes with args
+      onGenerateRoute: (settings) {
+        if (settings.name == DetailsScreen.routeName) {
+          final args = settings.arguments as FavoriteItem;
+          return MaterialPageRoute(
+            builder: (context) {
+              return DetailsScreen(item: args);
+            },
+          );
+        }
+        assert(false, 'Need to implement ${settings.name}');
+        return null;
+      },
     );
   }
 }
