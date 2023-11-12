@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       // Static routes
       routes: {
         HomeScreen.routeName: (context) => HomeScreen(),
-        AddItemScreen.routeName: (context) => const AddItemScreen(),
+        AddItemScreen.routeName: (context) => AddItemScreen(),
       },
       // Routes with args
       onGenerateRoute: (settings) {
