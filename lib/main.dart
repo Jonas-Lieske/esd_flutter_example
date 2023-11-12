@@ -15,14 +15,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'My Favorite Things',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: HomeScreen(),
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      home: const HomeScreen(),
       // Static routes
       routes: {
-        HomeScreen.routeName: (context) => HomeScreen(),
-        AddItemScreen.routeName: (context) => AddItemScreen(),
+        HomeScreen.routeName: (context) => const HomeScreen(),
+        AddItemScreen.routeName: (context) => const AddItemScreen(),
       },
       // Routes with args
       onGenerateRoute: (settings) {

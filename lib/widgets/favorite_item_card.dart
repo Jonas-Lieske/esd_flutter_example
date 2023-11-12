@@ -9,16 +9,29 @@ class FavoriteItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        title: Text(item.title),
-        onTap: () {
-          Navigator.pushNamed(
-            context,
-            DetailsScreen.routeName,
-            arguments: item,
-          );
-        },
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          DetailsScreen.routeName,
+          arguments: item,
+        );
+      },
+      child: Container(
+        height: 50,
+        decoration: BoxDecoration(
+            color: Theme.of(context).cardColor,
+            border: Border.all(color: Colors.black12)),
+        child: Row(
+          children: [
+            Expanded(
+                child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Text(item.title,
+                        style: const TextStyle(fontSize: 25)))),
+            const Icon(Icons.arrow_right)
+          ],
+        ),
       ),
     );
   }

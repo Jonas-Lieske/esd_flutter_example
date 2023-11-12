@@ -23,11 +23,8 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('My Favorite Things'),
       ),
-      body: ListView.builder(
-        itemCount: items.length,
-        itemBuilder: (context, index) {
-          return FavoriteItemCard(item: items[index]);
-        },
+      body: ListView(
+        children: [...items.map((e) => FavoriteItemCard(item: e))],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
