@@ -1,4 +1,5 @@
 # 🚀 Overview
+<img style="float: right; height: 300px" src="docs/app_preview_mockup.png">
 This Flutter app is designed for the Enterprise Software Development (ESD)  workshop to introduce the basics of Flutter and Dart programming. The app, titled "My Favorite Things", allows users to create a list of their favorite items, view details, and add new items. It demonstrates fundamental Flutter concepts like navigation, state management, and UI design.
 
 # 🛠️ Task
